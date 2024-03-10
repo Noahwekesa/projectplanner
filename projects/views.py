@@ -8,7 +8,7 @@ from projects.models import Project
 
 
 def projects_view(request):
-    print(request.session.get("project_handle"))
+    print(request.project.is_activated)
     """Dashbaord for all the projects"""
     context = {}
     return render(request, "projects/projects.html", context)
@@ -42,4 +42,4 @@ def activate_project_view(request, handle=None):
 def deactivate_project_view(request, handle=None):
     delete_project_from_session(request)
     messages.success(request, "Project Deactivated.")
-    return redirect("home")
+    return redirect("projects")
