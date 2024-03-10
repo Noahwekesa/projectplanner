@@ -30,11 +30,12 @@
     >
       <ul class="flex space-x-3">
         <li>
-          <a>login</a>
+          <a class="hover:underline" href="{% url 'account_login' %}">login</a>
         </li>
         <li>
           <a
-            class="border border-black py-3 px-4 rounded-md bg-gray-900 text-white"
+            href="{% url 'account_signup' %}"
+            class="py-3 px-4 rounded-md bg-blue-700 hover:bg-blue-900 text-white"
             >SignUp</a
           >
         </li>
