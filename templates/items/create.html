@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Create Tasks for project{% endblock title %}
+{% load tailwind_filters %}
+{% block content %}
+<div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
+  <h1 class="text-2xl font-medium">Create Task for <span class="text-blue-700"> {{request.project.title}}
+    </span></h1>
+  <form method="post">
+    {% csrf_token %}
+    {{form|crispy}}
+    <button type="submit"
+      class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
+      Create</button>
+  </form>
+</div>
+{% endblock content %}

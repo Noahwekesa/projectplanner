@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.db import models
 from projects.models import Project
+from django.utils import timezone
 
 
 User = settings.AUTH_USER_MODEL
@@ -60,7 +61,7 @@ class Item(models.Model):
     )
     title = models.CharField(max_length=120)
     description = models.TextField(blank=True, null=True)
-    updated = models.DateTimeField(auto_now=True)
+    updated = models.DateTimeField(auto_now=True, auto_now_add=False)
     timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
 
     def save(self, *args, **kwargs):
