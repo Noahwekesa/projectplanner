@@ -1,5 +1,7 @@
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import (
+    get_object_or_404,
     render,
     redirect,
 )
@@ -9,11 +11,22 @@ from projects.models import Project
 
 def projects_view(request):
     print(request.project.is_activated)
+    projects = Project.objects.all()
     """Dashbaord for all the projects"""
+    context = {
+        "projects": projects,
+    }
+    return render(request, "projects/overview.html", context)
+
+
+@login_required
+def projects_detail_view(request, handle):
+    project_obj = get_object_or_404(Project, slug=handle)
     context = {}
-    return render(request, "projects/projects.html", context)
+    return render(request, "projects/detail.html", context)
 
 
+@login_required
 def delete_project_from_session(request):
     # delete session project
     try:
@@ -22,6 +35,7 @@ def delete_project_from_session(request):
         pass
 
 
+@login_required
 def activate_project_view(request, handle=None):
     # http://127.0.0.1:8000/activate/projects/project-planner
     try:
@@ -39,6 +53,7 @@ def activate_project_view(request, handle=None):
     return redirect("projects")
 
 
+@login_required
 def deactivate_project_view(request, handle=None):
     delete_project_from_session(request)
     messages.success(request, "Project Deactivated.")

@@ -3,10 +3,19 @@ from django import forms
 from .models import Item
 
 
-class ItemForm(forms.ModelForm):
+class ItemCreateForm(forms.ModelForm):
     class Meta:
         model = Item
-        fields = ["title", "description"]
+        fields = ["title"]
 
-        def clean_title(self):
-            raise forms.ValidationError("There was something wrong.")
+
+class ItemUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Item
+        fields = [
+            "title",
+            "description",
+            "status",
+            "itemtype",
+            "priority",
+        ]
