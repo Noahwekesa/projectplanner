@@ -7,3 +7,6 @@ class ItemForm(forms.ModelForm):
     class Meta:
         model = Item
         fields = ["title", "description"]
+
+        def clean_title(self):
+            raise forms.ValidationError("There was something wrong.")

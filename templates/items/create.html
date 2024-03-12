@@ -3,8 +3,9 @@
 {% load tailwind_filters %}
 {% block content %}
 <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
-  <h1 class="text-2xl font-medium">Create Task for <span class="text-blue-700"> {{request.project.title}}
-    </span></h1>
+  <h2 class="mb-4 text-xl font-bold text-gray-900">Create Task for <span class="text-blue-700">
+      {{request.project.title}}
+    </span></h2>
   <form method="post">
     {% csrf_token %}
     {{form|crispy}}

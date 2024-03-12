@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="relative overflow-x-auto mt-6">
+  <table class="w-full text-left rtl:text-right">
+    <thead class="uppercase ">
+      <tr>
+        <th scope="col" class="px-6 py-3">
+          Task
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Assignee
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Status
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Priority
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Type
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for object in object_list %}
+
+      <tr class="border-b">
+        <th scope="row" class="px-6 py-4 whitespace-nowrap">
+          <a class="text-blue-700" href="{{ object.get_absolute_url }}">
+            {{object.title}}
+          </a>
+        </th>
+        <td class="px-6 py-4">
+          will add later
+        </td>
+        <td class="px-6 py-4">
+          {{object.status}}
+        </td>
+        <td class="px-6 py-4">
+          {{object.priority}}
+        </td>
+        <td class="px-6 py-4">
+          {{object.itemtype}}
+        </td>
+      </tr>
+
+      {% endfor %}
+
+    </tbody>
+  </table>
+</div>
+{% endblock content %}

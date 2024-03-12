@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.db import models
+from django.urls import reverse
 from projects.models import Project
-from django.utils import timezone
 
 
 User = settings.AUTH_USER_MODEL
@@ -68,3 +68,6 @@ class Item(models.Model):
         if self.added_by:
             self.added_by_username = self.added_by.username
         super().save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse("items:detail", kwargs={"id": self.id})
