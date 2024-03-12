@@ -21,8 +21,8 @@ def projects_view(request):
 
 @login_required
 def projects_detail_view(request, handle):
-    project_obj = get_object_or_404(Project, slug=handle)
-    context = {}
+    project_obj = get_object_or_404(Project, handle=handle)
+    context = {"project_obj": project_obj}
     return render(request, "projects/detail.html", context)
 
 

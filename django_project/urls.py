@@ -9,8 +9,8 @@ urlpatterns = [
     path("__reload__/", include("django_browser_reload.urls")),
     # apps
     path("", include("pages.urls")),
-    path("", include("projects.urls")),
-    path("", include("items.urls")),
+    path("projects/", include("projects.urls")),
+    path("items/", include("items.urls")),
 ]
 
 if settings.DEBUG:

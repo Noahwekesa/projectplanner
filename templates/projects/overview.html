@@ -4,7 +4,7 @@
   {% for project in projects %}
 
   <div class="py-3">
-    <a href="#" class="block max-w-sm p-6 bg-white border border-gray-400 rounded-lg shadow hover:shadow-gray-800">
+    <a href="{{project.get_absolute_url}}" class="block max-w-sm p-6 bg-white border border-gray-400 rounded-lg shadow hover:shadow-gray-800">
       <h5 class="mb-2 text-2xl font-bold tracking-tight">{{project.title}}</h5>
       <p class="font-normal">
         Here are the biggest enterprise technology acquisitions of 2021 so far,

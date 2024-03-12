@@ -5,6 +5,8 @@
  * https://unpkg.com/browse/tailwindcss@latest/stubs/defaultConfig.stub.js
  */
 
+const colors = require("tailwindcss/colors");
+
 module.exports = {
   content: [
     /**
@@ -42,6 +44,30 @@ module.exports = {
     // '../../**/*.py'
   ],
   theme: {
+    colors: {
+      primary: {
+        50: "#eff6ff",
+        100: "#243b6d",
+        200: "#bfdbfe",
+        300: "#93c5fd",
+        400: "#60a5fa",
+        500: "#3b82f6",
+        600: "#2563eb",
+        700: "#1d4ed8",
+        800: "#1e40af",
+        900: "#1e3a8a",
+        950: "#172554",
+      },
+      gray: colors.gray,
+      red: colors.red,
+      green: colors.green,
+      blue: colors.blue,
+      white: colors.white,
+      black: colors.black,
+      stone: colors.stone,
+      sky: colors.sky,
+      violet: colors.violet,
+    },
     fontFamily: {
       body: [
         "Nunito Sans",
@@ -86,8 +112,9 @@ module.exports = {
      * for forms. If you don't like it or have own styling for forms,
      * comment the line below to disable '@tailwindcss/forms'.
      */
+    require("flowbite/plugin"),
     require("@tailwindcss/forms"),
-    // require("@tailwindcss/typography"),
+    require("@tailwindcss/typography"),
     // require("@tailwindcss/aspect-ratio"),
   ],
 };
