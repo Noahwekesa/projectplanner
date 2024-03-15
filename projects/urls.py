@@ -6,7 +6,7 @@ from . import views
 app_name = "projects"
 
 urlpatterns = [
-    path("", views.projects_view, name="projects"),
+    path("", views.projects_list_view, name="list"),
     path(
         "activate/projects/<slug:handle>",
         views.activate_project_view,

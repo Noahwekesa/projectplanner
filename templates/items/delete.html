@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
   <p class="">Are you sure you want to delete {{instance.title}}</p>
-  {% include "items/snippets/form.html" with form=form btn_label='delete'%}
+  {% include "items/snippets/form.html" with form=form btn_label='confirm'%}
 </div>
 {% endblock content %}
