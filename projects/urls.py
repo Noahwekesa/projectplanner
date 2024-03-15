@@ -6,7 +6,8 @@ from . import views
 app_name = "projects"
 
 urlpatterns = [
-    path("", views.projects_list_view, name="list"),
+    path("", views.project_list_view, name="list"),
+    path("create/", views.project_create_view, name="create"),
     path(
         "activate/projects/<slug:handle>",
         views.activate_project_view,
@@ -17,5 +18,6 @@ urlpatterns = [
         views.deactivate_project_view,
         name="activate-project",
     ),
-    path("<slug:handle>/", views.projects_detail_view, name="detail"),
+    path("<slug:handle>", views.project_detail_update_view, name="detail"),
+    path("<slug:handle>/delete/", views.project_delete_view, name="delete"),
 ]

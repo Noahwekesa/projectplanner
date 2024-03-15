@@ -12,16 +12,39 @@ class AnonymousProject:
 
 
 class Project(models.Model):
-    owner = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+    owner = models.ForeignKey(
+        User,
+        null=True,
+        related_name="owned_projects",
+        on_delete=models.CASCADE,
+    )
+    added_by = models.ForeignKey(
+        User,
+        related_name="projects_added",
+        on_delete=models.SET_NULL,
+        null=True,
+    )
+    added_by_username = models.CharField(max_length=120, null=True, blank=True)
+    last_modified_by = models.ForeignKey(
+        User,
+        related_name="projects_changed",
+        on_delete=models.SET_NULL,
+        null=True,
+    )
     title = models.CharField(max_length=150, null=True, blank=True)
-    # description
+    description = models.TextField(null=True, blank=True)
     handle = AutoSlugField(populate_from="title", null=True, blank=True)
     active = models.BooleanField(default=True)
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
 
+    def save(self, *args, **kwargs):
+        if self.added_by:
+            self.added_by_username = self.added_by.username
+        super().save(*args, **kwargs)
+
     def get_absolute_url(self):
-        return reverse("projects:details", kwargs={"handle": self.handle})
+        return reverse("projects:detail", kwargs={"handle": self.handle})
 
     @property
     def is_activated(self):
