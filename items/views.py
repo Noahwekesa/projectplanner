@@ -11,6 +11,7 @@ def item_delete_view(request, id=None):
     instance = get_object_or_404(Item, id=id, project=request.project)
     if request.method == "POST":
         instance.delete()
+        messages.success(request, "Task deleted!")
         return redirect("items:list")
     context = {"instance": instance}
     return render(request, "items/delete.html", context)

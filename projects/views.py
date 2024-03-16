@@ -46,25 +46,25 @@ def project_delete_view(request, handle=None):
 
 
 @login_required
+def projects_detail_view(request, handle):
+    project_obj = get_object_or_404(Project, handle=handle)
+    context = {"project_obj": project_obj}
+    return render(request, "projects/detail.html", context)
+
+
+@login_required
 def project_create_view(request):
-    if not request.project.is_activated:
-        return render(request, "projects/create.html", {})
+    # if not request.project.is_activated:
+    #     return render(request, "projects/activate.html", {})
     form = forms.ProjectCreateForm(request.POST or None)
     if form.is_valid():
         project_obj = form.save(commit=False)
-        project_obj.project = request.project
+        project_obj.owner = request.user
         project_obj.added_by = request.user
         project_obj.save()
         return redirect(project_obj.get_absolute_url())
     context = {"form": form}
     return render(request, "projects/create.html", context)
-
-
-@login_required
-def projects_detail_view(request, handle):
-    project_obj = get_object_or_404(Project, handle=handle)
-    context = {"project_obj": project_obj}
-    return render(request, "projects/detail.html", context)
 
 
 @login_required
@@ -77,15 +77,11 @@ def delete_project_from_session(request):
 
 @login_required
 def activate_project_view(request, handle=None):
-    try:
-        project_obj = Project.objects.get(owner=request.user, handle=handle)
-    except:
-        project_obj = None
-        print("not here")
+    project_obj = Project.objects.get(owner=request.user, handle=handle)
     if project_obj is None:
         delete_project_from_session(request)
         messages.error(request, "Project could not activate. Try again.")
-        return redirect("projects")
+        return redirect("/projects")
     request.session["project_handle"] = handle
     messages.success(request, "Project activated.")
     print(project_obj, handle)

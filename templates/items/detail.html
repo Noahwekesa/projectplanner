@@ -3,7 +3,6 @@
 <div class="m-6">
 
 <h1>{{instance.title}}</h1>
-
-    {% include "items/snippets/form.html" with instance=instance  btn_label='Save' %}
+ {% include 'items/snippets/form.html' with form=form btn_label="Save" %}
 </div>
 {% endblock content %}
