@@ -13,7 +13,7 @@ crispy-tailwind==1.0.3
 cryptography==39.0.1
 curlylint==0.13.1
 defusedxml==0.7.1
-Django
+Django==4.2.9
 django-allauth==0.61.1
 django-browser-reload==1.12.1
 django-crispy-forms==2.1
