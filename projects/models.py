@@ -25,6 +25,7 @@ class Project(models.Model):
         populate_from="title",
         null=True,
         blank=True,
+        unique=True,
         validators=[validators.validate_project_handle],
     )
     active = models.BooleanField(default=True)

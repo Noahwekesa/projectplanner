@@ -32,6 +32,7 @@ def item_detail_update_view(request, id=None):
         item_obj = form.save(commit=False)
         item_obj.last_modified_by = request.user
         item_obj.save()
+        messages.success(request, "Task updated successfully!")
         return redirect(item_obj.get_absolute_url())
     context = {
         "instance": instance,

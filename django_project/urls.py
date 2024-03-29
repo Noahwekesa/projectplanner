@@ -5,14 +5,12 @@ from projects import views
 
 urlpatterns = [
     path(
-        "activate/projects/<slug:handle>",
+        "activate/project/<slug:handle>",
         views.activate_project_view,
-        name="activate-project",
     ),
     path(
-        "deactivate/projects/<slug:handle>",
+        "deactivate/project/<slug:handle>",
         views.deactivate_project_view,
-        name="activate-project",
     ),
     path("admin/", admin.site.urls),
     # Packages
