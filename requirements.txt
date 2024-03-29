@@ -31,8 +31,7 @@ oauthlib==3.2.2
 packaging==23.1
 parsy==1.1.0
 pathspec==0.12.1
-psycopg==3.1.18
-psycopg-binary==3.1.18
+psycopg2-binary==2.9.9
 pycparser==2.21
 Pygments==2.17.2
 PyJWT==2.6.0
