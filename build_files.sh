@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # install requirements
-python3 -m pip install pip
 python3 -m pip install -r requirements.txt
 
 # migrations and migrate
