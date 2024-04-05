@@ -1,13 +1,19 @@
 #!/bin/bash
 
+# Create a virtual environment
+python3 -m virtualenv venv
+
+# Activate the virtual environment
+source venv/bin/activate
+
 # Upgrade pip
-python3 -m pip install --upgrade pip
+pip install --upgrade pip
 
 # Install requirements
-python3 -m pip install -r requirements.txt
+pip install -r requirements.txt
 
-# Install tailwind
-python3 manage.py tailwind install
+# Install tailwind (if necessary, adjust this line according to your project requirements)
+python manage.py tailwind install
 
 # Collect static files
-python3 manage.py collectstatic --noinput
+python manage.py collectstatic --noinput
