@@ -1,6 +1,7 @@
 #!/bin/bash
 
-python -m ensurepip --upgrade
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python get-pip.py
 # Upgrade pip
 python3 -m pip install --upgrade pip
 
