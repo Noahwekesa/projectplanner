@@ -15,7 +15,7 @@ SECRET_KEY = "django-insecure-0peo@#x9jur3!h$ryje!$879xww8y1y66jx!%*#ymhg&jkozs2
 DEBUG = True
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = [".vercel.app", "localhost", "0.0.0.0", "127.0.0.1"]
+ALLOWED_HOSTS = ["127.0.0.1", ".vercel.app"]
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = [
@@ -65,9 +65,6 @@ MIDDLEWARE = [
 # https://docs.djangoproject.com/en/dev/ref/settings/#root-urlconf
 ROOT_URLCONF = "django_project.urls"
 
-# https://docs.djangoproject.com/en/dev/ref/settings/#wsgi-application
-WSGI_APPLICATION = "django_project.wsgi.app"
-
 # https://docs.djangoproject.com/en/dev/ref/settings/#templates
 TEMPLATES = [
     {
@@ -84,6 +81,10 @@ TEMPLATES = [
         },
     },
 ]
+
+
+# https://docs.djangoproject.com/en/dev/ref/settings/#wsgi-application
+WSGI_APPLICATION = "django_project.wsgi.app"
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 # DATABASES = {
