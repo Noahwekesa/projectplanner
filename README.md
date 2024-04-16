@@ -39,6 +39,48 @@ git clone https://github.com/Noahwekesa/projectplanner.git
 cd projectplanner
 ```
 
+3. Create a virtual environment(recommended)
+
+```bash
+
+python -m venv venv
+
+source venv/bin/activate
+
+```
+
+4. Install dependencies
+
+```bash
+
+pip install -r requirements.txt
+```
+
+5. Create a local database and configure database settings in `settings.py`.
+
+6. Apply database migrations:
+
+```bash
+
+python manage.py makemigrations
+
+python manage.py migrate
+```
+
+7. Run the development server
+
+```bash
+
+python manage.py runserver
+```
+
+8. run tailwind server
+
+```bash
+python manage.py tailwind start
+
+```
+
 ### Author(s):
 
 [Noah wekesa LinkedIn](www.linkedin.com/in/noah-wekesa-4a375815a)
